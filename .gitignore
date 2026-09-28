@@ -3,3 +3,9 @@ node_modules/
 data/
 .env*.local
 *.log
+
+# Spec-kit tooling
+.specify/
+
+# IDE
+.vscode/

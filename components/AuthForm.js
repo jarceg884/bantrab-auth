@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import BantrabLogo from '@/components/BantrabLogo';
+import AuthIllustration from '@/components/AuthIllustration';
 import styles from './AuthForm.module.css';
 
 export default function AuthForm({ mode }) {
@@ -49,8 +50,9 @@ export default function AuthForm({ mode }) {
         <span className={styles["brand-name"]}>BANTRAB</span>
       </header>
 
-      <main className={styles["auth-card"]}>
-        <h1>{isSignUp ? 'Create your account' : 'Sign up or log in'}</h1>
+      <div className={styles["auth-split"]}>
+        <main className={styles["auth-card"]}>
+          <h1>{isSignUp ? 'Create your account' : 'Sign up or log in'}</h1>
 
         <button type="button" className={styles["btn-social"]} disabled title="Demo only">
           <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
@@ -68,7 +70,7 @@ export default function AuthForm({ mode }) {
           Continue with Apple
         </button>
 
-        <form onSubmit={handleSubmit} noValidate>
+        <form onSubmit={handleSubmit} className={styles["auth-form"]} noValidate>
           {isSignUp && (
             <div className={styles["field"]}>
               <label htmlFor="name">Full name</label>
@@ -133,6 +135,12 @@ export default function AuthForm({ mode }) {
           </button>
         </form>
 
+        <p className={styles["legal"]}>
+          By continuing with Google, Apple, or email you agree to Bantrab&apos;s{' '}
+          <a href="#" onClick={(e) => e.preventDefault()}>Terms of Service</a> and{' '}
+          <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy</a>.
+        </p>
+
         <p className={styles["switch"]}>
           {isSignUp ? (
             <>Already have an account? <a href="/signin">Log in</a></>
@@ -140,13 +148,12 @@ export default function AuthForm({ mode }) {
             <>Don&apos;t have an account? <a href="/signup">Sign up</a></>
           )}
         </p>
+        </main>
 
-        <p className={styles["legal"]}>
-          By continuing with Google, Apple, or email you agree to Bantrab&apos;s{' '}
-          <a href="#" onClick={(e) => e.preventDefault()}>Terms of Service</a> and{' '}
-          <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy</a>.
-        </p>
-      </main>
+        <aside className={styles["auth-visual"]} aria-hidden="true">
+          <AuthIllustration />
+        </aside>
+      </div>
     </div>
   );
 }

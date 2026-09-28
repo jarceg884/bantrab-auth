@@ -2,19 +2,16 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f4f5f7;
-  padding: 24px 16px 48px;
+  background: #ffffff;
+  padding: 32px 12% 40px;
+  position: relative;
 }
 
 .auth-header {
-  width: 100%;
-  max-width: 400px;
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .brand-name {
@@ -24,6 +21,16 @@
   color: #3c4043;
 }
 
+/* Two-column split: form on the left, 3D illustration on the right */
+.auth-split {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: 0;
+}
+
 .auth-card {
   width: 100%;
   max-width: 420px;
@@ -31,11 +38,32 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  background: #ffffff;
-  padding: 40px 36px;
-  border-radius: 16px;
-  border: 1px solid #ededee;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  /* sit lower like the reference (~30% from top) without moving the aside */
+  margin-top: 12vh;
+}
+
+.auth-visual {
+  /* vertically centered against the page, like the reference */
+  position: absolute;
+  top: 50vh;
+  right: 12%;
+  transform: translateY(-50%);
+  width: 38%;
+}
+
+@media (max-width: 900px) {
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-split {
+    justify-content: flex-start;
+  }
 }
 
 .auth-card h1 {
@@ -75,6 +103,12 @@
   margin-bottom: 16px;
 }
 
+/* the auth card is a flex column with align-items: flex-start, so the form
+   shrinks to intrinsic width unless it stretches to the full card width */
+.auth-form {
+  width: 100%;
+}
+
 .field label {
   display: block;
   font-size: 13px;
@@ -85,9 +119,10 @@
 
 .field input {
   width: 100%;
-  padding: 12px 14px;
+  /* match the social buttons' pill shape and height */
+  padding: 12px 16px;
   border: 1px solid #ececed;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 14px;
   color: #2b3031;
   background: #ffffff;
@@ -129,8 +164,9 @@
 
 .btn-primary {
   width: 100%;
-  padding: 13px 16px;
-  border: none;
+  /* same box model as .btn-social so heights match exactly */
+  padding: 12px 16px;
+  border: 1px solid transparent;
   border-radius: 999px;
   background: #a5cfda;
   color: #ffffff;

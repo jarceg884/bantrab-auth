@@ -204,3 +204,48 @@
   color: #9aa0a6;
   text-align: center;
 }
+
+/* Consent checkbox — signup only (FR-008, FR-012, FR-016) */
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #de0066;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consent input[type="checkbox"]:focus-visible {
+  outline: 2px solid #de0066;
+  outline-offset: 2px;
+}
+
+.consent label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #3c4043;
+  cursor: pointer;
+}
+
+.consent a {
+  color: #de0066;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.consent a:hover {
+  text-decoration: underline;
+}
+
+.consent a:focus-visible {
+  outline: 2px solid #de0066;
+  outline-offset: 2px;
+  border-radius: 4px;
+}

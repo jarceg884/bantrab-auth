@@ -31,6 +31,8 @@ docker run -p 3000:3000 -v bantrab_data:/app/data bantrab-auth
 | Route | Description |
 |---|---|
 | `/` | Login (sign in) |
-| `/signup` | Create account |
+| `/signup` | Create account (requires consent checkbox) |
 | `/signin` | Login (alias) |
+| `/terms` | Terms and Conditions (public, Spanish legal body) |
+| `/privacy` | Privacy Policy (public, Spanish legal body) |
 | `/dashboard` | Protected area (requires session) |

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import BantrabLogo from '@/components/BantrabLogo';
 import AuthIllustration from '@/components/AuthIllustration';
+import AuthFooter from '@/components/AuthFooter';
 import styles from './AuthForm.module.css';
 
 export default function AuthForm({ mode }) {
@@ -16,6 +17,7 @@ export default function AuthForm({ mode }) {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [accepted, setAccepted] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -126,7 +128,28 @@ export default function AuthForm({ mode }) {
             </p>
           )}
 
-          <button type="submit" className={styles["btn-primary"]} disabled={loading}>
+          {isSignUp && (
+            <div className={styles["consent"]}>
+              <input
+                id="consent"
+                type="checkbox"
+                checked={accepted}
+                onChange={(e) => setAccepted(e.target.checked)}
+                required
+              />
+              <label htmlFor="consent">
+                I accept the{' '}
+                <a href="/terms">Terms and Conditions</a> and the{' '}
+                <a href="/privacy">Privacy Policy</a>
+              </label>
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className={styles["btn-primary"]}
+            disabled={loading || (isSignUp && !accepted)}
+          >
             {loading
               ? 'Please wait...'
               : isSignUp
@@ -137,8 +160,8 @@ export default function AuthForm({ mode }) {
 
         <p className={styles["legal"]}>
           By continuing with Google, Apple, or email you agree to Bantrab&apos;s{' '}
-          <a href="#" onClick={(e) => e.preventDefault()}>Terms of Service</a> and{' '}
-          <a href="#" onClick={(e) => e.preventDefault()}>Privacy Policy</a>.
+          <a href="/terms">Terms of Service</a> and{' '}
+          <a href="/privacy">Privacy Policy</a>.
         </p>
 
         <p className={styles["switch"]}>
@@ -148,6 +171,8 @@ export default function AuthForm({ mode }) {
             <>Don&apos;t have an account? <a href="/signup">Sign up</a></>
           )}
         </p>
+
+        <AuthFooter />
         </main>
 
         <aside className={styles["auth-visual"]} aria-hidden="true">

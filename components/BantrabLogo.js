@@ -1,3 +1,5 @@
+'use client';
+
 // Bantrab logo — 4-blade pinwheel/turbine mark rebuilt from the brand image:
 // sheared parallelogram blades (one sharp corner pointing outward) arranged at
 // 90° rotations around a small white hub gap:

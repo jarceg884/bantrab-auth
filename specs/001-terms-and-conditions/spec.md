@@ -18,7 +18,7 @@ A visitor on `/signup` or `/signin` activates the existing "Terms of Service" li
 
 **Why this priority**: The link already lives in the UI but goes nowhere (dead `href="#"`). Making the document reachable is the core requirement and a viable MVP on its own.
 
-**Independent Test**: From `/signup`, click "Terms of Service" → the browser lands on `/terms`, which renders the document with an English page title, a Spanish body, the "Última actualización" date, the demo notice, and ≥6 numbered sections; browser Back returns to `/signup`.
+**Independent Test**: From `/signup`, click "Terms of Service" → the browser lands on `/terms`, which renders the document with an English page title, a Spanish body, the "Última actualización" date, the demo notice, and ≥6 sections; browser Back returns to `/signup`. (Section headings are not required to be numbered — no FR/SC mandates a number; numbering is an optional cosmetic follow-up, see Clarifications.)
 
 **Acceptance Scenarios**:
 
@@ -114,3 +114,10 @@ On `/signup`, an unchecked required checkbox labeled "I accept the Terms and Pri
 - No new runtime dependencies (no MDX/CMS): content lives in a plain JS module rendered by a shared component.
 - UI labels stay in English per project convention; only the legal body copy is Spanish.
 - Existing tokens/classes from `AuthForm.module.css` and `globals.css` are reused.
+
+## Clarifications
+
+### Session 2026-09-29 — QA ruling on section numbering
+
+- **Q**: US1's Independent Test says "≥6 *numbered* sections", but no FR/SC/task requires numbered headings. Does the lack of visible numbering block sign-off?
+- **Ruling (PO)**: **No — not a blocker.** Numbering is cosmetic and is **not** a functional requirement; the binding criteria are the Acceptance Scenarios and FR-001…FR-016, none of which mandate a number. US1/US2 sign off as PASS. Adding visible numbering (text prefix or CSS `counter`) is logged as an **optional v1.1 cosmetic follow-up**, not part of release 001. The Independent Test wording was aligned to "≥6 sections" to remove the internal inconsistency.

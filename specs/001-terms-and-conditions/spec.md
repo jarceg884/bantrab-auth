@@ -4,7 +4,7 @@
 
 **Created**: 2026-09-28
 
-**Status**: Draft — pending user validation
+**Status**: Approved — validated by user 2026-09-29 (consent UI-only, chrome EN / legal body ES, fixed date 2026-09-28, v1 excludes cookie banner, EN legal text, i18n, dashboard legal links; checkbox only on /signup)
 
 **Input**: User description: "Página de Términos y Condiciones para la demo Bantrab: enlazada desde signin/signup, con checkbox obligatorio en signup."
 
@@ -85,12 +85,12 @@ On `/signup`, an unchecked required checkbox labeled "I accept the Terms and Pri
 - **FR-008**: The signup form MUST include a required consent checkbox labeled "I accept the Terms and Privacy Policy", with inline links to both documents.
 - **FR-009**: The "Create account" button MUST be disabled until the consent checkbox is checked (signup only).
 - **FR-010**: Both pages MUST reuse the Bantrab identity: `BantrabLogo` component; palette yellow `#FFE200`, magenta `#DE0066`, teal `#00ACAA`, gray `#D2D7DB`, wordmark `#1C1C1B`, white background.
-- **FR-016**: Brand colors MUST meet WCAG AA where applied to text or to interactive/focus indicators. Yellow `#FFE200` (≈1.15:1 on white) and gray `#D2D7DB` (≈1.4:1 on white) are **decorative surfaces only** — never used as a text color or a focus indicator on white. Text placed on a yellow surface MUST be `#1C1C1B`. Body/link text and focus indicators MUST use a color with ≥4.5:1 (text) / ≥3:1 (non-text) against their background — e.g. magenta `#DE0066` (≈4.6:1 on white) or wordmark `#1C1C1B`.
 - **FR-011**: UI chrome (page titles, footer, checkbox label) MUST be in English; legal body copy MUST be in Spanish.
 - **FR-012**: Pages MUST be responsive from 360px to desktop and meet WCAG 2.1 AA (semantic headings/landmarks, keyboard operable, visible focus, AA contrast).
 - **FR-013**: Each page MUST set its own `metadata.title` ("Bantrab — Terms and Conditions" / "Bantrab — Privacy Policy").
 - **FR-014**: Pages MUST be statically rendered (no server data fetching) and the project MUST pass `next build` with no new errors.
 - **FR-015**: Each legal page MUST offer a way back into the app (brand/header logo and a "Back" affordance or footer link to signin/signup).
+- **FR-016**: Brand colors MUST meet WCAG AA where applied to text or to interactive/focus indicators. Yellow `#FFE200` (≈1.15:1 on white) and gray `#D2D7DB` (≈1.4:1 on white) are **decorative surfaces only** — never used as a text color or a focus indicator on white. Text placed on a yellow surface MUST be `#1C1C1B`. Body/link text and focus indicators MUST use a color with ≥4.5:1 (text) / ≥3:1 (non-text) against their background — e.g. magenta `#DE0066` (≈4.6:1 on white) or wordmark `#1C1C1B`.
 
 ### Key Entities *(include if feature involves data)*
 
